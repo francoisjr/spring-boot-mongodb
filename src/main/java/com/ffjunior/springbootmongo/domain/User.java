@@ -20,7 +20,7 @@ public class User implements Serializable {
     private String email;
 
     @DBRef(lazy = true)
-    // lazy = true garante que os posts só serão carregados apenas se eu acessalos
+    // lazy = true (carregamento tardio)garante que os posts só serão carregados apenas se eu acessalos
     private List<Post> posts = new ArrayList<>();
 
 

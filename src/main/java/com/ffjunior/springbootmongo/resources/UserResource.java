@@ -1,5 +1,6 @@
 package com.ffjunior.springbootmongo.resources;
 
+import com.ffjunior.springbootmongo.domain.Post;
 import com.ffjunior.springbootmongo.domain.User;
 import com.ffjunior.springbootmongo.dto.UserDTO;
 import com.ffjunior.springbootmongo.services.UserService;
@@ -62,4 +63,9 @@ public class UserResource {
         return ResponseEntity.noContent().build();
     }
 
+    @RequestMapping(value = "/{id}/posts", method = RequestMethod.GET)
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id){
+        User obj = userService.findById(id);
+        return ResponseEntity.ok().body(obj.getPosts());
+    }
 }
