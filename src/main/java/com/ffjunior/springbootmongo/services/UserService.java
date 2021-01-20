@@ -27,7 +27,12 @@ public class UserService {
     }
 
     public User insert(User obj){
-        return  userRepository.insert(obj);
+        return userRepository.insert(obj);
+    }
+
+    public void delete(String id){
+        findById(id);
+        userRepository.deleteById(id);
     }
 
     public User fromDto(UserDTO objDto){
